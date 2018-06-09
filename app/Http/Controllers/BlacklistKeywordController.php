@@ -11,7 +11,7 @@ class BlacklistKeywordController extends Controller
 {
 	public function checkMessageContent(Request $request)
 	{
-		$message = $request->message;
+		$message = strtolower($request->message);
 		$blacklisted_keywords = KeywordBlacklist::all()->toArray();
 
 
