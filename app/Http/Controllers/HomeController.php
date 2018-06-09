@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Message;
 use Auth;
 
 class HomeController extends Controller
@@ -28,7 +29,11 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::where('id', '!=', Auth::id())->get();
+        $stats = [
+            'user_count' => User::count(),
+            'messages_count' => Message::count(),
+        ];
 
-        return view('home', compact('users'));
+        return view('home', compact('users','stats'));
     }
 }

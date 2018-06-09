@@ -11,7 +11,23 @@
             </ol>
 
             <h3>Hello, {{ Auth::user()->name }}.</h3>
-            <p>Chat with someone!</p>
+            <p>Chat with someone today!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 stat-box-outer">
+            <div class="stat-box">
+                <h2>{{ $stats['messages_count'] }}</h2>
+                <p>messages sent within users</p>
+            </div>
+        </div>
+
+        <div class="col-xs-6 stat-box-outer">
+            <div class="stat-box">
+                <h2>{{ $stats['user_count'] }}</h2>
+                <p>users joined ChatterApp so far</p>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -64,6 +80,17 @@
 
     .user-box-outer {
         margin-bottom: 10px;
+    }
+
+    .stat-box-outer {
+        margin-bottom: 30px;
+    }
+
+    .stat-box {
+        text-align: center;
+        padding: 20px 20px 20px 20px;
+        background-color: #eee;
+        text-decoration: none;
     }
 </style>
 @endsection
